@@ -199,6 +199,8 @@ void writeResultToArray(int* result)
 			result[(int)a - 97] = b;
 		} // end while
 	} // end if
+	
+	file.close();
 } // end method writeResultToArray
 
 string askUserForFileName(void)
