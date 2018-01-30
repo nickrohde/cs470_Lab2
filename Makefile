@@ -1,12 +1,29 @@
-SOURCE=countChars.cpp
-NAME=countChars
+SOURCE_SINGLE=countChars-onlySingles.cpp
+SOURCE_DOUBLE=countChars-singlesDoubles.cpp
+SOURCE_COMBS=countChars-all.cpp
+SINGLE=CountSingleLetters
+DOUBLE=CountSingleLettersAndRepeats
+COMBS=CountSingleLettersAndCombinations
 
 CC=g++
 
-all: $(NAME)
+all: $(SINGLE) $(DOUBLE) $(COMBS)
 
-$(NAME): $(SOURCE)
-	$(CC) $(SOURCE) -o $(NAME)
+$(SINGLE):
+	$(CC) $(SOURCE_SINGLE) -o $(SINGLE)
+
+$(DOUBLE):
+	$(CC) $(SOURCE_DOUBLE) -o $(DOUBLE)
+
+$(COMBS): 
+	$(CC) $(SOURCE_COMBS) -o $(COMBS)
+
+single: $(SINGLE)
+
+double: $(DOUBLE)
+
+combs: $(COMBS)
 
 clean: 
-	rm -f $(NAME) *.o 
+	rm -f $(SINGLE) $(DOUBLE) $(COMBS) *.o temp
+
